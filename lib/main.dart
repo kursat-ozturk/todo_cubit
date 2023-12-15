@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:todo_cubit/cubits/active_todo_count/active_todo_count_cubit.dart';
+import 'package:todo_cubit/cubits/todo_filter/todo_filter_cubit.dart';
+import 'package:todo_cubit/cubits/todo_list/todo_list_cubit.dart';
+import 'package:todo_cubit/cubits/todo_search/todo_search_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'pages/todos_page.dart';
 
@@ -11,14 +16,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Todo Cubit',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<TodoFilterCubit>(
+          create: (context) => TodoFilterCubit(),
+        ),
+        BlocProvider<TodoSearchCubit>(
+          create: (context) => TodoSearchCubit(),
+        ),
+        BlocProvider<TodoListCubit>(
+          create: (context) => TodoListCubit(),
+        ),
+        BlocProvider<ActiveTodoCountCubit>(
+          create: (context) => ActiveTodoCountCubit(
+            todoListCubit: BlocProvider.of<TodoListCubit>(context),
+          ),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Todo Cubit',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const TodosPage(),
       ),
-      home: const TodosPage(),
     );
   }
 }
-
