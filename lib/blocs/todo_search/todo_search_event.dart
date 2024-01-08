@@ -1,7 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'todo_search_bloc.dart';
 
-sealed class TodoSearchEvent extends Equatable {
+abstract class TodoSearchEvent extends Equatable {
   const TodoSearchEvent();
 
   @override
@@ -17,6 +16,6 @@ class SetSearchTermEvent extends TodoSearchEvent {
   @override
   String toString() => 'SetSearchTermEvent(newSearchTerm: $newSearchTerm)';
 
-    @override
+  @override
   List<Object> get props => [newSearchTerm];
 }

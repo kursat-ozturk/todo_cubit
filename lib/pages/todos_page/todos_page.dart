@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:todo_cubit/pages/todos_page/create_todo.dart';
-import 'package:todo_cubit/pages/todos_page/search_and_filter_todo.dart';
-import 'package:todo_cubit/pages/todos_page/show_todos.dart';
-import 'package:todo_cubit/pages/todos_page/todo_header.dart';
+
+import 'create_todo.dart';
+import 'search_and_filter_todo.dart';
+import 'show_todos.dart';
+import 'todo_header.dart';
 
 class TodosPage extends StatelessWidget {
-  const TodosPage({super.key});
+  const TodosPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +15,14 @@ class TodosPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 40,
+              horizontal: 20.0,
+              vertical: 40.0,
             ),
             child: Column(
               children: [
                 TodoHeader(),
                 CreateTodo(),
-                SizedBox(height: 20),
+                SizedBox(height: 20.0),
                 SearchAndFilterTodo(),
                 ShowTodos(),
               ],

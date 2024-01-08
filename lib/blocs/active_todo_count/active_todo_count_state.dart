@@ -14,7 +14,8 @@ class ActiveTodoCountState extends Equatable {
   List<Object> get props => [activeTodoCount];
 
   @override
-  String toString() => 'ActiveTodoCountState(activeTodoCount: $activeTodoCount)';
+  String toString() =>
+      'ActiveTodoCountState(activeTodoCount: $activeTodoCount)';
 
   ActiveTodoCountState copyWith({
     int? activeTodoCount,

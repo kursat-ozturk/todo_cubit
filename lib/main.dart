@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:todo_cubit/cubits/cubits.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'blocs/blocs.dart';
 import 'pages/todos_page/todos_page.dart';
 
 void main() {
@@ -17,41 +17,40 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<TodoFilterCubit>(
-          create: (context) => TodoFilterCubit(),
+        BlocProvider<TodoFilterBloc>(
+          create: (context) => TodoFilterBloc(),
         ),
-        BlocProvider<TodoSearchCubit>(
-          create: (context) => TodoSearchCubit(),
+        BlocProvider<TodoSearchBloc>(
+          create: (context) => TodoSearchBloc(),
         ),
-        BlocProvider<TodoListCubit>(
-          create: (context) => TodoListCubit(),
+        BlocProvider<TodoListBloc>(
+          create: (context) => TodoListBloc(),
         ),
-        BlocProvider<ActiveTodoCountCubit>(
-          create: (context) => ActiveTodoCountCubit(
+        BlocProvider<ActiveTodoCountBloc>(
+          create: (context) => ActiveTodoCountBloc(
             initialActiveTodoCount:
-                context.read<TodoListCubit>().state.todos.length,
+                context.read<TodoListBloc>().state.todos.length,
           ),
         ),
-        BlocProvider<FilteredTodosCubit>(
-          create: (context) => FilteredTodosCubit(
-            initialTodos: context.read<TodoListCubit>().state.todos,
+        BlocProvider<FilteredTodosBloc>(
+          create: (context) => FilteredTodosBloc(
+            initialTodos: context.read<TodoListBloc>().state.todos,
           ),
         ),
       ],
       child: MaterialApp(
-        title: 'Todo Cubit',
+        title: 'TODO',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+          primarySwatch: Colors.blue,
         ),
-        home: const TodosPage(),
+        home: TodosPage(),
       ),
     );
   }

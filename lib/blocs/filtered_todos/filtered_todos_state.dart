@@ -14,7 +14,7 @@ class FilteredTodosState extends Equatable {
   List<Object> get props => [filteredTodos];
 
   @override
-  String toString() => 'FilteredTodoState(filteredTodos: $filteredTodos)';
+  String toString() => 'FilteredTodosState(filteredTodos: $filteredTodos)';
 
   FilteredTodosState copyWith({
     List<Todo>? filteredTodos,

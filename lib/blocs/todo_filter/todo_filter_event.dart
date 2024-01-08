@@ -16,6 +16,6 @@ class ChangeFilterEvent extends TodoFilterEvent {
   @override
   String toString() => 'ChangeFilterEvent(newFilter: $newFilter)';
 
-    @override
+  @override
   List<Object> get props => [newFilter];
 }

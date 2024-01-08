@@ -1,7 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'todo_list_bloc.dart';
 
-sealed class TodoListEvent extends Equatable {
+abstract class TodoListEvent extends Equatable {
   const TodoListEvent();
 
   @override

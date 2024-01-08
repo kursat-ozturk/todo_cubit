@@ -14,7 +14,8 @@ class CalculateActiveTodoCountEvent extends ActiveTodoCountEvent {
   });
 
   @override
-  String toString() => 'CalculateActiveTodoCountEvent(activeTodoCount: $activeTodoCount)';
+  String toString() =>
+      'CalculateActiveTodoCountEvent(activeTodoCount: $activeTodoCount)';
 
   @override
   List<Object> get props => [activeTodoCount];
