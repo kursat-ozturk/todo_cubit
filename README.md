@@ -32,3 +32,8 @@
 - Always extends Equatable class
     - Ease of equality check of object instances
     - Provides convenience functions such as stringify
+ 
+## TODO App Structure
+
+![appStructure](https://github.com/kursat-ozturk/todo_cubit/assets/69029656/604f3518-3a03-412c-abc7-f99e2d65616a)
+
