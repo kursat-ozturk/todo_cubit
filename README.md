@@ -1,16 +1,34 @@
 # todo_cubit
 
-A new Flutter project.
+## Why TODO App
 
-## Getting Started
+- App familiar to many developers
+- Easy to adjust difficulty, good app for learning
+- A good app to apply various state management techniques using bloc
 
-This project is a starting point for a Flutter application.
+## Implementing 4 times
 
-A few resources to get you started if this is your first Flutter project:
+- Cubit + StreamSubscription
+- Cubit + BlocListener
+- Bloc + StreamSubscription
+- Bloc + BlocListener
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## States
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Independent States
+- Computed States
+    - StreamSubscription
+    - BlocListener
+
+## My Best Practice
+
+- Make the state as atomic as possible
+    - If it can be logically separated, create a separate state and manage it
+- State is mainly managed in the form of a class
+    - Group and manage logically related values
+    - Classify and manage primitive type variables such as String and int - The advantage of avoiding type conflicts
+- Immutable state
+    - Create a new state using the copyWith function
+- Always extends Equatable class
+    - Ease of equality check of object instances
+    - Provides convenience functions such as stringify
